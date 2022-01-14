@@ -6,6 +6,7 @@ public class HandleCommands
 {
     private Cart cart;
 
+    //constructor to pass an instance of the Cart class into this handlecommands class
     public HandleCommands() {
         cart = new Cart();
     }
@@ -16,7 +17,9 @@ public class HandleCommands
 
     public void handleAdd(String command, String arguments, Scanner scan) {
         
-        while ("add".equals(command)) {
+        while ("add".equals(command)) {//as long as the scanner line contains "add" in the string
+
+            //the Array will trim the arguments
             String [] strArray = arguments.trim().split(",");
 
             while ("".equals(arguments.trim())) {
@@ -68,7 +71,10 @@ public class HandleCommands
             while (position == -1) {
 
                 try {
+                    //set the position to fetch the string inside the argument variable which came from the user and parse it as an Integer, and trim the white space around it
                     position = Integer.parseInt(arguments.trim());
+                    //sets the position to match the index number of the fruit
+                    position = position -1;
                 } catch (NumberFormatException nfe) {
                     System.out.println("Please provide a number");
                 }
